@@ -287,6 +287,42 @@ use controller\crypt;
                                 <button id="btn_export" name="export" class="btn btn-link btn-sm font-weight-bold">
                                 <i class="icon-share-alt"></i>Export</button>
                             </form>
+                      <?php } else{ ?>
+
+                        <form action="index.php?goto= 
+                            <?= $this->datacrypt('dashboard') ?>
+                                    &target= <?= $this->datacrypt('select') ?>&data_type=<?=$this->datacrypt('data_collected')?>"
+                                  method="POST">
+                              <label for="date_debut" class="mb-0"> Début: </label>
+                              <input 
+                              type="datetime-local" 
+                              name="date_debut" 
+                              step="1" 
+                              value=<?php 
+                                if(isset($_POST['valider']))  {
+                                    echo $date_debut;
+                                }else{
+                                  echo "";
+                                }
+                                
+                                ?>
+                              >
+                              <label for="date_fin" class="mb-0"> Fin: </label>
+                              <input type="datetime-local" name="date_fin" step="1"
+                              value=<?php 
+                                if(isset($_POST['valider']))  {
+                                    echo $date_fin;
+                                }else{
+                                  echo "";
+                                }
+                                
+                                ?>
+                              >
+                              <button name="valider" class="btn btn-link btn-sm font-weight-bold">Valider</button>
+                              <button id="btn_export" name="export" class="btn btn-link btn-sm font-weight-bold">
+                              <i class="icon-share-alt"></i>Export</button>
+                          </form>
+                            
                     <?php } } ?>
                 </div>
      
